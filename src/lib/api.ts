@@ -4,26 +4,40 @@ const API_BASE_URLS = [
   "https://api.abcz.workers.dev/api/bazardor",
 ];
 
+export type Market = {
+  market: string;
+  division: string;
+  min: number;
+  max: number;
+};
+
+export type PriceChange = {
+  dir: "up" | "down" | "stable";
+  pct: number;
+};
+
 export type Product = {
-  id: string | number;
-  name?: string;
-  title?: string;
-  slug?: string;
-  description?: string;
-  image?: string;
-  images?: string[];
-  price?: number | string;
-  category?: string;
-  [key: string]: unknown;
+  id: number;
+  slug: string;
+  nameBn: string;
+  category: string;
+  categoryNameBn: string;
+  categoryIcon: string;
+  unit: string;
+  image: string;
+  today: number;
+  yesterday: number;
+  lastWeek: number;
+  lastMonth: number;
+  change: PriceChange;
+  markets: Market[];
 };
 
 export type Category = {
-  id: string | number;
-  name?: string;
-  title?: string;
-  slug?: string;
-  image?: string;
-  [key: string]: unknown;
+  id: string;
+  slug: string;
+  nameBn: string;
+  icon: string;
 };
 
 async function fetchApi<T>(endpoint: string): Promise<T> {
