@@ -1,7 +1,6 @@
-
 "use client";
 
-import Image from "next/image";
+import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -48,15 +47,14 @@ export default function Navbar() {
             aria-label="বাজার দর home"
             className="group flex min-w-0 items-center gap-3"
           >
-            
-            <Image
-              src="/logo-icon.png"
-              alt="বাজার দর logo"
-              width={96}
-             height={96}
-              priority
-              className="h-11 w-11 shrink-0 object-contain transition-transform duration-200 group-hover:scale-105 sm:h-12 sm:w-12"
-            />
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-100 transition-transform duration-200 group-hover:scale-105 sm:h-12 sm:w-12">
+              <ShoppingCart
+                size={25}
+                strokeWidth={2.2}
+                className="text-black"
+                aria-hidden="true"
+              />
+            </span>
 
             <span className="flex flex-col">
               <span className="text-[23px] font-extrabold leading-tight tracking-tight text-emerald-800 sm:text-[27px]">
